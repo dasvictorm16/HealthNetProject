@@ -113,7 +113,7 @@ const ComplianceReviewPage = () => {
               <tbody>
                 {filtered.map(r => (
                   <tr key={r.id} className={['FAIL', 'NON_COMPLIANT'].includes(r.result) ? 'table-danger' : r.result === 'WARNING' ? 'table-warning' : ''}>
-                    <td className="fw-medium">#{r.id}</td>
+                    <td className="fw-medium">{r.id}</td>
                     <td>{r.entityId}</td>
                     <td><StatusBadge status={r.type} /></td>
                     <td><StatusBadge status={r.result} /></td>

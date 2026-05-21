@@ -140,7 +140,7 @@ const EpidemiologyDataPage = () => {
               <select className="form-select" value={selectedOutbreakId} onChange={e => { setSelectedOutbreakId(e.target.value); setShowForm(false) }}>
                 <option value="">— Select an outbreak —</option>
                 {outbreaks.map(o => (
-                  <option key={o.id} value={o.id}>#{o.id} — {o.diseaseType} ({o.location}) [{o.status}]</option>
+                  <option key={o.id} value={o.id}>{o.id} — {o.diseaseType} ({o.location}) [{o.status}]</option>
                 ))}
               </select>
             )}
@@ -156,7 +156,7 @@ const EpidemiologyDataPage = () => {
 
       {/* Create / Edit form */}
       {showForm && (
-        <Card title={editTarget ? `Edit Data #${editTarget.id}` : 'Add Epidemiology Data'} className="mb-4">
+        <Card title={editTarget ? `Edit Data ${editTarget.id}` : 'Add Epidemiology Data'} className="mb-4">
           <form onSubmit={handleSubmit} noValidate>
             <div className="mb-3">
               <label className="form-label">
@@ -200,7 +200,7 @@ const EpidemiologyDataPage = () => {
         <Card
           header={
             <div className="d-flex justify-content-between align-items-center">
-              <h5 className="mb-0">Data for Outbreak #{selectedOutbreakId}</h5>
+              <h5 className="mb-0">Data for Outbreak {selectedOutbreakId}</h5>
               {!showForm && <Button onClick={openCreate}>+ Add Data</Button>}
             </div>
           }
@@ -221,7 +221,7 @@ const EpidemiologyDataPage = () => {
                       <div className="card-body">
                         <div className="d-flex justify-content-between align-items-start mb-2">
                           <div>
-                            <span className="fw-medium small">Entry #{d.id}</span>
+                            <span className="fw-medium small">Entry {d.id}</span>
                             <span className="text-muted small ms-2">{d.date}</span>
                           </div>
                           <div className="d-flex gap-2 align-items-center">

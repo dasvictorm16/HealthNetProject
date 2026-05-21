@@ -17,7 +17,7 @@ const useCitizen = () => {
       .then((res) => setCitizen(res.data?.data ?? null))
       .catch((err) => {
         if (isNotFound(err)) {
-          setCitizen(null) // profile simply doesn't exist yet — not a crash
+          setCitizen(null) //profile simply doesn't exist yet — not a crash
         } else {
           setError(err?.response?.data?.message || 'Failed to load citizen profile')
         }

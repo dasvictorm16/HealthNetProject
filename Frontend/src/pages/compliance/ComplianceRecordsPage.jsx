@@ -115,10 +115,15 @@ const ComplianceRecordsPage = () => {
 
   return (
     <DashboardLayout>
-      <div className="d-flex justify-content-between align-items-start mb-4 flex-wrap gap-2">
-        <div>
-          <h2 className="page-title">Compliance Records</h2>
-          <p className="text-muted mb-0">Create and manage compliance records for cases, outbreaks, and vaccination programs.</p>
+      <div className="hn-page-header-row">
+        <div style={{ display:'flex', alignItems:'center', gap:'14px' }}>
+          <div className="hn-page-header-icon" style={{ background:'linear-gradient(135deg,#7c3aed,#a78bfa)' }}>
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          </div>
+          <div>
+            <h2 style={{ fontSize:'22px', fontWeight:'900', color:'#0f172a', margin:0, letterSpacing:'-0.3px' }}>Compliance Records</h2>
+            <p style={{ fontSize:'13px', color:'#64748b', margin:'4px 0 0', fontWeight:'500' }}>Create and manage compliance records for cases, outbreaks, and vaccination programs.</p>
+          </div>
         </div>
         <Button onClick={openCreate}>+ New Record</Button>
       </div>
@@ -135,7 +140,7 @@ const ComplianceRecordsPage = () => {
 
       {/* Create / Edit form */}
       {showForm && (
-        <Card title={editTarget ? `Edit Record #${editTarget.id}` : 'Create Compliance Record'} className="mb-4">
+        <Card title={editTarget ? `Edit Record ${editTarget.id}` : 'Create Compliance Record'} className="mb-4">
           <form onSubmit={handleSubmit} noValidate>
             <div className="row g-3">
               <div className="col-md-4">
@@ -225,7 +230,7 @@ const ComplianceRecordsPage = () => {
             <tbody>
               {filtered.map(r => (
                 <tr key={r.id}>
-                  <td className="fw-medium">#{r.id}</td>
+                  <td className="fw-medium">{r.id}</td>
                   <td>{r.entityId}</td>
                   <td><StatusBadge status={r.type} /></td>
                   <td><StatusBadge status={r.result} /></td>

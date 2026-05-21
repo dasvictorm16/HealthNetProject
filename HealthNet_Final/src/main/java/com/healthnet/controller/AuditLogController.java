@@ -23,7 +23,7 @@ public class AuditLogController {
 		this.auditLogService = auditLogService;
 	}
 
-	@PreAuthorize("hasAnyRole('ADMIN','AUDITOR','HEALTH_ADMINISTRATOR')")
+	@PreAuthorize("hasAnyRole('ADMIN','HEALTH_ADMINISTRATOR')")
 	@GetMapping
 	public ResponseEntity<APIResponse<List<AuditLogResponseDTO>>> getAllAuditLogs() {
 

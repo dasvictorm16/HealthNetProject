@@ -108,10 +108,15 @@ const OutbreaksPage = () => {
 
   return (
     <DashboardLayout>
-      <div className="d-flex justify-content-between align-items-start mb-4 flex-wrap gap-2">
-        <div>
-          <h2 className="page-title">Outbreaks</h2>
-          <p className="text-muted mb-0">Monitor, create, and update disease outbreak records.</p>
+      <div className="hn-page-header-row">
+        <div style={{ display:'flex', alignItems:'center', gap:'14px' }}>
+          <div className="hn-page-header-icon" style={{ background:'linear-gradient(135deg,#dc2626,#f87171)' }}>
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          </div>
+          <div>
+            <h2 style={{ fontSize:'22px', fontWeight:'900', color:'#0f172a', margin:0, letterSpacing:'-0.3px' }}>Outbreaks</h2>
+            <p style={{ fontSize:'13px', color:'#64748b', margin:'4px 0 0', fontWeight:'500' }}>Monitor, create, and update disease outbreak records.</p>
+          </div>
         </div>
         <Button onClick={openCreate}>+ New Outbreak</Button>
       </div>
@@ -134,7 +139,7 @@ const OutbreaksPage = () => {
       )}
 
       {showForm && (
-        <Card title={editTarget ? `Edit Outbreak #${editTarget.id}` : 'Create New Outbreak'} className="mb-4">
+        <Card title={editTarget ? `Edit Outbreak ${editTarget.id}` : 'Create New Outbreak'} className="mb-4">
           <form onSubmit={handleSubmit} noValidate>
             <div className="row g-3">
               <div className="col-md-6">
@@ -188,7 +193,7 @@ const OutbreaksPage = () => {
             <tbody>
               {filtered.map(o => (
                 <tr key={o.id}>
-                  <td className="fw-medium">#{o.id}</td>
+                  <td className="fw-medium">{o.id}</td>
                   <td>{o.diseaseType}</td>
                   <td>{o.location}</td>
                   <td>{o.startDate}</td>

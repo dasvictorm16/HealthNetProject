@@ -133,7 +133,7 @@ const VaccinationProgramsPage = () => {
       )}
 
       {showForm && (
-        <Card title={editTarget ? `Edit Program #${editTarget.id}` : 'Create Vaccination Program'} className="mb-4">
+        <Card title={editTarget ? `Edit Program ${editTarget.id}` : 'Create Vaccination Program'} className="mb-4">
           <form onSubmit={handleSubmit} noValidate>
             <div className="row g-3">
               <div className="col-md-6">
@@ -199,7 +199,7 @@ const VaccinationProgramsPage = () => {
             <tbody>
               {filtered.map(p => (
                 <tr key={p.id}>
-                  <td className="fw-medium">#{p.id}</td>
+                  <td className="fw-medium">{p.id}</td>
                   <td>
                     <div className="fw-medium">{p.title}</div>
                     <div className="text-muted small">{p.description}</div>

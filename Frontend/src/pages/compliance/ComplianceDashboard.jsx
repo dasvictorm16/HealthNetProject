@@ -118,7 +118,7 @@ const ComplianceDashboard = () => {
               {recent.length === 0
                 ? <p style={{ fontSize:'13px', color:'#94a3b8', margin:0 }}>No compliance records found.</p>
                 : recent.map(r => (
-                  <ListRow key={r.id} left={`Entity #${r.entityId} — ${r.type}`} sub={`${r.date} · ${r.notes?.slice(0,40) || ''}${r.notes?.length > 40 ? '…' : ''}`} badge={r.result} />
+                  <ListRow key={r.id} left={`Entity ${r.entityId} — ${r.type}`} sub={`${r.date} · ${r.notes?.slice(0,40) || ''}${r.notes?.length > 40 ? '…' : ''}`} badge={r.result} />
                 ))
               }
             </SectionCard>

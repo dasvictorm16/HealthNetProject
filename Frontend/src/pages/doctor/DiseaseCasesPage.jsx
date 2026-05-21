@@ -124,10 +124,15 @@ const DiseaseCasesPage = () => {
 
   return (
     <DashboardLayout>
-      <div className="d-flex justify-content-between align-items-start mb-4 flex-wrap gap-2">
-        <div>
-          <h2 className="page-title">Disease Cases</h2>
-          <p className="text-muted mb-0">Monitor and manage disease cases assigned to you.</p>
+      <div className="hn-page-header-row">
+        <div style={{ display:'flex', alignItems:'center', gap:'14px' }}>
+          <div className="hn-page-header-icon" style={{ background:'linear-gradient(135deg,#dc2626,#f87171)' }}>
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+          </div>
+          <div>
+            <h2 style={{ fontSize:'22px', fontWeight:'900', color:'#0f172a', margin:0, letterSpacing:'-0.3px' }}>Disease Cases</h2>
+            <p style={{ fontSize:'13px', color:'#64748b', margin:'4px 0 0', fontWeight:'500' }}>Monitor and manage disease cases assigned to you.</p>
+          </div>
         </div>
         <Button onClick={openCreate}>+ Report New Case</Button>
       </div>
@@ -201,7 +206,7 @@ const DiseaseCasesPage = () => {
             <tbody>
               {myCases.map(c => (
                 <tr key={c.id}>
-                  <td className="fw-medium">#{c.id}</td>
+                  <td className="fw-medium">{c.id}</td>
                   <td>{c.citizenId}</td>
                   <td>{c.diseaseType}</td>
                   <td>{c.diagnosisDate}</td>

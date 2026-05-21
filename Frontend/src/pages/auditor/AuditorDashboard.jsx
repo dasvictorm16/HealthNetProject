@@ -195,7 +195,7 @@ const AuditorDashboard = () => {
               {compIssues.length === 0
                 ? <p style={{ fontSize:'13px', color:'#059669', fontWeight:'700', margin:0 }}>✅ No compliance issues found.</p>
                 : compIssues.slice(0,5).map(r => (
-                  <ListRow key={r.id} left={`Entity #${r.entityId} — ${r.type}`} sub={r.date} badge={r.result} />
+                  <ListRow key={r.id} left={`Entity ${r.entityId} — ${r.type}`} sub={r.date} badge={r.result} />
                 ))
               }
             </SectionCard>
@@ -209,7 +209,7 @@ const AuditorDashboard = () => {
               {recentReports.length === 0
                 ? <p style={{ fontSize:'13px', color:'#94a3b8', margin:0 }}>No reports found.</p>
                 : recentReports.map(r => (
-                  <ListRow key={r.id} left={`Report #${r.id}`} sub={r.generatedDate} badge={r.scope} />
+                  <ListRow key={r.id} left={`Report ${r.id}`} sub={r.generatedDate} badge={r.scope} />
                 ))
               }
             </SectionCard>

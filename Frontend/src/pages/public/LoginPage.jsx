@@ -32,7 +32,7 @@ const LoginPage = () => {
   const handleSubmit = async (e) => {
     e.preventDefault()
     if (!validate()) return
-    await login({ email: form.email, password: form.password, role: form.role })
+    await login({ email: form.email, password: form.password, role: form.role }) // from authContext
   }
 
   return (

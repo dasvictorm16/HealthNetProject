@@ -85,7 +85,7 @@ const ReportsPage = () => {
                   <div className="card-body">
                     <div className="d-flex justify-content-between align-items-start mb-3">
                       <div>
-                        <div className="fw-medium">Report #{r.id}</div>
+                        <div className="fw-medium">Report {r.id}</div>
                         <div className="text-muted small">{r.generatedDate}</div>
                       </div>
                       <StatusBadge status={r.scope} />

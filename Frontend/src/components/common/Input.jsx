@@ -1,17 +1,17 @@
 const Input = ({ label, id, type = 'text', value, onChange, placeholder, error, ...props }) => {
   return (
-    <div className="mb-3">
-      {label && <label htmlFor={id} className="form-label">{label}</label>}
+    <div className="hn-field">
+      {label && <label htmlFor={id}>{label}</label>}
       <input
         id={id}
         type={type}
-        className={`form-control ${error ? 'is-invalid' : ''}`}
+        className={`hn-input${error ? ' is-invalid' : ''}`}
         value={value}
         onChange={onChange}
         placeholder={placeholder}
         {...props}
       />
-      {error && <div className="invalid-feedback">{error}</div>}
+      {error && <span className="hn-field-error">{error}</span>}
     </div>
   )
 }

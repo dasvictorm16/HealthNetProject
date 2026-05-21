@@ -147,7 +147,7 @@ const DiseaseTrendsPage = () => {
                   <tbody>
                     {recent.map(c => (
                       <tr key={c.id}>
-                        <td className="fw-medium">#{c.id}</td>
+                        <td className="fw-medium">{c.id}</td>
                         <td>{c.diseaseType}</td>
                         <td>{c.citizenId}</td>
                         <td>{c.doctorId}</td>

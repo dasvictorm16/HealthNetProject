@@ -123,7 +123,7 @@ const UserManagementPage = () => {
         <div style={{ background:'#ffffff', borderRadius:'16px', border:'1px solid #e8edf5', boxShadow:'0 2px 12px rgba(10,50,114,0.05)', padding:'20px', marginBottom:'20px' }}>
           <div style={{ display:'flex', alignItems:'center', gap:'10px', marginBottom:'16px' }}>
             <div style={{ width:'4px', height:'20px', borderRadius:'4px', background:'linear-gradient(180deg,#0284c7,#06b6d4)' }} />
-            <span style={{ fontSize:'15px', fontWeight:'800', color:'#0f172a' }}>Edit User #{editTarget.id} — {editTarget.name}</span>
+            <span style={{ fontSize:'15px', fontWeight:'800', color:'#0f172a' }}>Edit User {editTarget.id} — {editTarget.name}</span>
           </div>
           <form onSubmit={handleEditSave} noValidate>
             <div style={{ display:'grid', gridTemplateColumns:'1fr 1fr', gap:'14px', marginBottom:'16px' }}>
@@ -186,7 +186,7 @@ const UserManagementPage = () => {
                     onMouseEnter={e => e.currentTarget.style.background='#f0f7ff'}
                     onMouseLeave={e => e.currentTarget.style.background = i % 2 === 0 ? '#ffffff' : '#fafbfc'}
                   >
-                    <td style={{ padding:'12px 16px', fontSize:'13px', fontWeight:'700', color:'#0284c7' }}>#{u.id}</td>
+                    <td style={{ padding:'12px 16px', fontSize:'13px', fontWeight:'700', color:'#0284c7' }}>{u.id}</td>
                     <td style={{ padding:'12px 16px' }}>
                       <div style={{ display:'flex', alignItems:'center', gap:'10px' }}>
                         <div style={{ width:'32px', height:'32px', borderRadius:'50%', background:'linear-gradient(135deg,#0284c7,#06b6d4)', display:'flex', alignItems:'center', justifyContent:'center', fontSize:'12px', fontWeight:'800', color:'#fff', flexShrink:0 }}>

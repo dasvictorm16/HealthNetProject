@@ -133,7 +133,7 @@ const CaseUpdatesPage = () => {
               cases.length > 0 ? (
                 <select className="form-select" value={selectedCaseId} onChange={e => { setSelectedCaseId(e.target.value); setShowForm(false) }}>
                   <option value="">— Select a case —</option>
-                  {cases.map(c => <option key={c.id} value={c.id}>#{c.id} — {c.diseaseType} (Citizen #{c.citizenId}) [{c.status}]</option>)}
+                  {cases.map(c => <option key={c.id} value={c.id}>{c.id} — {c.diseaseType} (Citizen {c.citizenId}) [{c.status}]</option>)}
                 </select>
               ) : (
                 <input type="number" className="form-control" placeholder="Enter case ID manually" value={selectedCaseId} onChange={e => setSelectedCaseId(e.target.value)} />
@@ -183,7 +183,7 @@ const CaseUpdatesPage = () => {
         <Card
           header={
             <div className="d-flex justify-content-between align-items-center">
-              <h5 className="mb-0">Updates for Case #{selectedCaseId}</h5>
+              <h5 className="mb-0">Updates for Case {selectedCaseId}</h5>
               {!showForm && <Button onClick={openCreate}>+ Add Update</Button>}
             </div>
           }
@@ -200,7 +200,7 @@ const CaseUpdatesPage = () => {
                   <div className="d-flex justify-content-between align-items-start">
                     <div className="flex-fill me-3">
                       <div className="d-flex align-items-center gap-2 mb-1">
-                        <span className="fw-medium small">Update #{u.id}</span>
+                        <span className="fw-medium small">Update {u.id}</span>
                         <StatusBadge status={u.status} />
                         <span className="text-muted" style={{ fontSize: '0.75rem' }}>{u.date}</span>
                       </div>

@@ -110,10 +110,15 @@ const AuditsPage = () => {
 
   return (
     <DashboardLayout>
-      <div className="d-flex justify-content-between align-items-start mb-4 flex-wrap gap-2">
-        <div>
-          <h2 className="page-title">Audits</h2>
-          <p className="text-muted mb-0">Review and manage audit records for system governance.</p>
+      <div className="hn-page-header-row">
+        <div style={{ display:'flex', alignItems:'center', gap:'14px' }}>
+          <div className="hn-page-header-icon" style={{ background:'linear-gradient(135deg,#0284c7,#38bdf8)' }}>
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+          </div>
+          <div>
+            <h2 style={{ fontSize:'22px', fontWeight:'900', color:'#0f172a', margin:0, letterSpacing:'-0.3px' }}>Audits</h2>
+            <p style={{ fontSize:'13px', color:'#64748b', margin:'4px 0 0', fontWeight:'500' }}>Review and manage audit records for system governance.</p>
+          </div>
         </div>
         <Button onClick={openCreate}>+ New Audit</Button>
       </div>
@@ -130,7 +135,7 @@ const AuditsPage = () => {
 
       {/* Create / Edit form */}
       {showForm && (
-        <Card title={editTarget ? `Edit Audit #${editTarget.id}` : 'Create Audit Record'} className="mb-4">
+        <Card title={editTarget ? `Edit Audit ${editTarget.id}` : 'Create Audit Record'} className="mb-4">
           <form onSubmit={handleSubmit} noValidate>
             <div className="row g-3">
               <div className="col-md-4">
@@ -201,7 +206,7 @@ const AuditsPage = () => {
             <tbody>
               {filtered.map(a => (
                 <tr key={a.id}>
-                  <td className="fw-medium">#{a.id}</td>
+                  <td className="fw-medium">{a.id}</td>
                   <td><StatusBadge status={a.scope} /></td>
                   <td>{a.date}</td>
                   <td><StatusBadge status={a.status} /></td>

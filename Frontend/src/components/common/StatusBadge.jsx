@@ -1,56 +1,70 @@
-const STATUS_MAP = {
-  // Citizen / generic
-  ACTIVE: 'success',
-  INACTIVE: 'secondary',
-  SUSPENDED: 'danger',
+// Color map aligned with HealthNet design system
+const STATUS_STYLES = {
+  // Generic
+  ACTIVE:          { bg: '#dcfce7', color: '#166534' },
+  INACTIVE:        { bg: '#f1f5f9', color: '#64748b' },
+  SUSPENDED:       { bg: '#fee2e2', color: '#991b1b' },
   // Document
-  PENDING: 'warning',
-  VERIFIED: 'success',
-  REJECTED: 'danger',
+  PENDING:         { bg: '#fef3c7', color: '#92400e' },
+  VERIFIED:        { bg: '#dcfce7', color: '#166534' },
+  REJECTED:        { bg: '#fee2e2', color: '#991b1b' },
   // Immunization
-  GIVEN: 'success',
-  MISSED: 'danger',
+  GIVEN:           { bg: '#dcfce7', color: '#166534' },
+  MISSED:          { bg: '#fee2e2', color: '#991b1b' },
   // Outbreak
-  DETECTED: 'danger',
-  CONTAINED: 'warning',
-  CLOSED: 'secondary',
-  // Vaccination program
-  UPCOMING: 'info',
-  COMPLETED: 'secondary',
+  DETECTED:        { bg: '#fee2e2', color: '#991b1b' },
+  CONTAINED:       { bg: '#fef3c7', color: '#92400e' },
+  CLOSED:          { bg: '#f1f5f9', color: '#64748b' },
+  // Vaccination
+  UPCOMING:        { bg: '#dbeafe', color: '#1e40af' },
+  COMPLETED:       { bg: '#f1f5f9', color: '#64748b' },
   // Notification
-  UNREAD: 'primary',
-  READ: 'secondary',
+  UNREAD:          { bg: '#ede9fe', color: '#5b21b6' },
+  READ:            { bg: '#f1f5f9', color: '#64748b' },
   // Disease case
-  REPORTED: 'primary',
-  UNDER_TREATMENT: 'warning',
-  RECOVERED: 'success',
+  REPORTED:        { bg: '#dbeafe', color: '#1e40af' },
+  UNDER_TREATMENT: { bg: '#fef3c7', color: '#92400e' },
+  RECOVERED:       { bg: '#dcfce7', color: '#166534' },
   // Case update
-  OBSERVED: 'info',
-  FOLLOW_UP: 'warning',
-  STABLE: 'success',
-  CRITICAL: 'danger',
-  // Epidemiology data
-  RECORDED: 'info',
-  ANALYZED: 'success',
-  ARCHIVED: 'secondary',
+  OBSERVED:        { bg: '#e0f2fe', color: '#0369a1' },
+  FOLLOW_UP:       { bg: '#fef3c7', color: '#92400e' },
+  STABLE:          { bg: '#dcfce7', color: '#166534' },
+  CRITICAL:        { bg: '#fee2e2', color: '#991b1b' },
+  // Epidemiology
+  RECORDED:        { bg: '#e0f2fe', color: '#0369a1' },
+  ANALYZED:        { bg: '#dcfce7', color: '#166534' },
+  ARCHIVED:        { bg: '#f1f5f9', color: '#64748b' },
   // Report scope
-  OUTBREAK: 'danger',
-  VACCINATION: 'success',
-  COMPLIANCE: 'primary',
-  CASE: 'info',
+  OUTBREAK:        { bg: '#fee2e2', color: '#991b1b' },
+  VACCINATION:     { bg: '#dcfce7', color: '#166534' },
+  COMPLIANCE:      { bg: '#dbeafe', color: '#1e40af' },
+  CASE:            { bg: '#e0f2fe', color: '#0369a1' },
   // Compliance result
-  PASS: 'success',
-  FAIL: 'danger',
-  WARNING: 'warning',
-  NON_COMPLIANT: 'danger',
-  // Audit status
-  OPEN: 'warning',
-  IN_REVIEW: 'info',
+  PASS:            { bg: '#dcfce7', color: '#166534' },
+  FAIL:            { bg: '#fee2e2', color: '#991b1b' },
+  WARNING:         { bg: '#fef3c7', color: '#92400e' },
+  NON_COMPLIANT:   { bg: '#fee2e2', color: '#991b1b' },
+  // Audit
+  OPEN:            { bg: '#fef3c7', color: '#92400e' },
+  IN_REVIEW:       { bg: '#dbeafe', color: '#1e40af' },
 }
 
 const StatusBadge = ({ status }) => {
-  const variant = STATUS_MAP[status] ?? 'secondary'
-  return <span className={`badge bg-${variant}`}>{status?.replace(/_/g, ' ')}</span>
+  const s = STATUS_STYLES[status] ?? { bg: '#f1f5f9', color: '#64748b' }
+  return (
+    <span style={{
+      background: s.bg,
+      color: s.color,
+      borderRadius: '999px',
+      fontSize: '11px',
+      fontWeight: '700',
+      padding: '3px 10px',
+      whiteSpace: 'nowrap',
+      display: 'inline-block',
+    }}>
+      {status?.replace(/_/g, ' ') ?? '—'}
+    </span>
+  )
 }
 
 export default StatusBadge

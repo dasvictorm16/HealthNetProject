@@ -123,7 +123,7 @@ const EntityReviewPage = () => {
                 <tbody>
                   {records.map(r => (
                     <tr key={r.id}>
-                      <td className="fw-medium">#{r.id}</td>
+                      <td className="fw-medium">{r.id}</td>
                       <td><StatusBadge status={r.type} /></td>
                       <td><StatusBadge status={r.result} /></td>
                       <td>{r.date}</td>

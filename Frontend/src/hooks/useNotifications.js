@@ -17,6 +17,9 @@ const useNotifications = () => {
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(null)
   const intervalRef = useRef(null)
+  // Use a ref to track whether we've had a successful first load
+  // without adding notifications to the fetchNotifications dependency array
+  const hasLoadedRef = useRef(false)
 
   const fetchNotifications = useCallback(async () => {
     if (!user?.userId || !isAuthenticated) return
@@ -25,18 +28,20 @@ const useNotifications = () => {
       const data = res.data?.data ?? []
       setNotifications(sortNotifications(data))
       setError(null)
+      hasLoadedRef.current = true
     } catch (err) {
-      // Silent on poll failures — only set error on first load
-      if (!notifications.length) {
+      // Only surface error to UI on first load; poll failures are silent
+      if (!hasLoadedRef.current) {
         setError(err?.response?.data?.message || 'Failed to load notifications')
       }
     }
-  }, [user?.userId, isAuthenticated]) // eslint-disable-line react-hooks/exhaustive-deps
+  }, [user?.userId, isAuthenticated])
 
   // Initial fetch + start polling
   useEffect(() => {
     if (!user?.userId || !isAuthenticated) return
 
+    hasLoadedRef.current = false
     setLoading(true)
     fetchNotifications().finally(() => setLoading(false))
 
@@ -45,7 +50,7 @@ const useNotifications = () => {
     return () => {
       if (intervalRef.current) clearInterval(intervalRef.current)
     }
-  }, [user?.userId, isAuthenticated]) // eslint-disable-line react-hooks/exhaustive-deps
+  }, [user?.userId, isAuthenticated, fetchNotifications])
 
   const markAsRead = useCallback(async (id) => {
     try {

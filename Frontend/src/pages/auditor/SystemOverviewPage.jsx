@@ -188,7 +188,7 @@ const SystemOverviewPage = () => {
                       <tbody>
                         {recentOutbreaks.map(o => (
                           <tr key={o.id} className={['DETECTED', 'ACTIVE'].includes(o.status) ? 'table-danger' : ''}>
-                            <td className="fw-medium">#{o.id}</td>
+                            <td className="fw-medium">{o.id}</td>
                             <td className="fw-medium">{o.diseaseType}</td>
                             <td className="text-muted small">📍 {o.location}</td>
                             <td>{o.startDate}</td>
@@ -234,7 +234,7 @@ const SystemOverviewPage = () => {
                   <tbody>
                     {programs.map(p => (
                       <tr key={p.id}>
-                        <td className="fw-medium">#{p.id}</td>
+                        <td className="fw-medium">{p.id}</td>
                         <td>{p.title}</td>
                         <td className="text-muted small">{p.vaccineType ?? '—'}</td>
                         <td>{p.startDate}</td>

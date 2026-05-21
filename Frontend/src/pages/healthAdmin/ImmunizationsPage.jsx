@@ -129,7 +129,7 @@ const ImmunizationsPage = () => {
       </Card>
 
       {showForm && (
-        <Card title={editTarget ? `Edit Immunization #${editTarget.id}` : 'Add Immunization'} className="mb-4">
+        <Card title={editTarget ? `Edit Immunization ${editTarget.id}` : 'Add Immunization'} className="mb-4">
           <form onSubmit={handleSubmit} noValidate>
             <div className="row g-3">
               <div className="col-md-5">
@@ -159,7 +159,7 @@ const ImmunizationsPage = () => {
         <Card
           header={
             <div className="d-flex justify-content-between align-items-center">
-              <h5 className="mb-0">Immunizations for Citizen #{selectedCitizenId}</h5>
+              <h5 className="mb-0">Immunizations for Citizen {selectedCitizenId}</h5>
               {!showForm && <Button onClick={openCreate}>+ Add Immunization</Button>}
             </div>
           }
@@ -199,7 +199,7 @@ const ImmunizationsPage = () => {
                 <tbody>
                   {immunizations.map(i => (
                     <tr key={i.id}>
-                      <td className="fw-medium">#{i.id}</td>
+                      <td className="fw-medium">{i.id}</td>
                       <td>{i.vaccineType}</td>
                       <td>{i.date}</td>
                       <td><StatusBadge status={i.status} /></td>

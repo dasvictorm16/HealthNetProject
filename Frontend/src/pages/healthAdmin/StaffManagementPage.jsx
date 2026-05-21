@@ -11,15 +11,15 @@ import { getRoleLabel, STAFF_ASSIGNABLE_ROLES } from '../../utils/roles'
 const USER_STATUSES = ['ACTIVE', 'INACTIVE', 'SUSPENDED']
 const EMPTY_FORM = { name: '', email: '', phone: '', password: '', role: 'DOCTOR' }
 
-const ROLE_BADGE_CLASS = {
-  HEALTH_ADMINISTRATOR: 'bg-info text-white',
-  ADMIN:                'bg-info text-white',
-  DOCTOR:               'bg-primary text-white',
-  HEALTH_WORKER:        'bg-primary text-white',
-  EPIDEMIOLOGIST:       'bg-warning text-dark',
-  COMPLIANCE_OFFICER:   'bg-secondary text-white',
-  AUDITOR:              'bg-dark text-white',
-  GOVERNMENT_AUDITOR:   'bg-dark text-white',
+const ROLE_BADGE_STYLE = {
+  HEALTH_ADMINISTRATOR: { bg:'#dbeafe', color:'#1e40af' },
+  ADMIN:                { bg:'#dbeafe', color:'#1e40af' },
+  DOCTOR:               { bg:'#ede9fe', color:'#5b21b6' },
+  HEALTH_WORKER:        { bg:'#ede9fe', color:'#5b21b6' },
+  EPIDEMIOLOGIST:       { bg:'#fef3c7', color:'#92400e' },
+  COMPLIANCE_OFFICER:   { bg:'#f1f5f9', color:'#475569' },
+  AUDITOR:              { bg:'#1e293b', color:'#f8fafc' },
+  GOVERNMENT_AUDITOR:   { bg:'#1e293b', color:'#f8fafc' },
 }
 
 const StaffManagementPage = () => {
@@ -120,10 +120,15 @@ const StaffManagementPage = () => {
 
   return (
     <DashboardLayout>
-      <div className="d-flex justify-content-between align-items-start mb-4 flex-wrap gap-2">
-        <div>
-          <h2 className="page-title">Staff Management</h2>
-          <p className="text-muted mb-0">View, create, and manage internal staff accounts.</p>
+      <div className="hn-page-header-row">
+        <div style={{ display:'flex', alignItems:'center', gap:'14px' }}>
+          <div className="hn-page-header-icon" style={{ background:'linear-gradient(135deg,#0284c7,#38bdf8)' }}>
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <div>
+            <h2 style={{ fontSize:'22px', fontWeight:'900', color:'#0f172a', margin:0, letterSpacing:'-0.3px' }}>Staff Management</h2>
+            <p style={{ fontSize:'13px', color:'#64748b', margin:'4px 0 0', fontWeight:'500' }}>View, create, and manage internal staff accounts.</p>
+          </div>
         </div>
         <Button onClick={openCreate}>+ Add Staff User</Button>
       </div>
@@ -133,7 +138,7 @@ const StaffManagementPage = () => {
       {saveSuccess && <div className="alert alert-success py-2">{saveSuccess}</div>}
 
       {showForm && (
-        <Card title={editTarget ? `Edit User #${editTarget.id}` : 'Create Staff User'} className="mb-4">
+        <Card title={editTarget ? `Edit User ${editTarget.id}` : 'Create Staff User'} className="mb-4">
           <form onSubmit={handleSubmit} noValidate>
             <div className="row g-3">
               <div className="col-md-6">
@@ -209,12 +214,12 @@ const StaffManagementPage = () => {
               <tbody>
                 {filtered.map(u => (
                   <tr key={u.id}>
-                    <td className="fw-medium">#{u.id}</td>
+                    <td className="fw-medium">{u.id}</td>
                     <td>{u.name}</td>
                     <td className="text-muted small">{u.email}</td>
                     <td className="text-muted small">{u.phone ?? '—'}</td>
                     <td>
-                      <span className={`badge ${ROLE_BADGE_CLASS[u.role] ?? 'bg-secondary text-white'}`}>
+                      <span className="hn-role-badge" style={{ background: ROLE_BADGE_STYLE[u.role]?.bg || '#f1f5f9', color: ROLE_BADGE_STYLE[u.role]?.color || '#475569' }}>
                         {getRoleLabel(u.role)}
                       </span>
                     </td>

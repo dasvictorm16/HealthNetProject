@@ -481,6 +481,604 @@ body {
 .layout-footer { background: #fff; border-top: 1px solid rgba(0,0,0,0.06); }
 .sidebar-64 { width: 4rem; min-width: 4rem; }
 
+/* ── Page header utility ── */
+.hn-page-header-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+}
+.hn-page-header-icon {
+  width: 46px; height: 46px;
+  border-radius: 13px;
+  background: linear-gradient(135deg, #0284c7, #06b6d4);
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 4px 12px rgba(2,132,199,0.25);
+  flex-shrink: 0;
+}
+
+/* ── Alert overrides with icons ── */
+.hn-alert {
+  border-radius: 12px;
+  padding: 12px 16px;
+  font-size: 13px;
+  font-weight: 600;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+.hn-alert-warning { background: #fffbeb; border: 1px solid #fde68a; color: #92400e; }
+.hn-alert-danger  { background: #fef2f2; border: 1px solid #fecaca; color: #991b1b; }
+.hn-alert-success { background: #f0fdf4; border: 1px solid #bbf7d0; color: #166534; }
+.hn-alert-info    { background: #eff6ff; border: 1px solid #bfdbfe; color: #1e40af; }
+
+/* ── Unified table card ── */
+.hn-table-card {
+  background: #ffffff;
+  border-radius: 16px;
+  border: 1px solid #e8edf5;
+  box-shadow: 0 2px 12px rgba(10,50,114,0.05);
+  overflow: hidden;
+}
+.hn-table-card-header {
+  padding: 16px 20px;
+  border-bottom: 1px solid #f1f5f9;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.hn-table-card-header-title {
+  font-size: 15px;
+  font-weight: 800;
+  color: #0f172a;
+}
+.hn-table-filters {
+  padding: 14px 20px;
+  border-bottom: 1px solid #f1f5f9;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+/* ── Unified table ── */
+.hn-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 13px;
+  color: var(--hn-text);
+}
+.hn-table thead th {
+  background: #f8fafc;
+  color: #64748b;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 12px 16px;
+  border-bottom: 1px solid #f1f5f9;
+  white-space: nowrap;
+  text-align: left;
+}
+.hn-table tbody td {
+  padding: 12px 16px;
+  border-bottom: 1px solid #f8fafc;
+  vertical-align: middle;
+}
+.hn-table tbody tr:hover { background: #f0f7ff; cursor: pointer; }
+.hn-table tbody tr:last-child td { border-bottom: none; }
+
+/* ── Role badge colors ── */
+.hn-role-badge {
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 10px;
+  white-space: nowrap;
+  display: inline-block;
+}
+
+/* ── Search input with icon ── */
+.hn-search-wrap { position: relative; }
+.hn-search-wrap svg { position: absolute; left: 12px; top: 50%; transform: translateY(-50%); color: #94a3b8; pointer-events: none; }
+.hn-search-wrap .hn-input { padding-left: 36px; }
+
+/* ── Stat summary row ── */
+.hn-summary-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 12px;
+  margin-bottom: 20px;
+}
+.hn-summary-cell {
+  background: #ffffff;
+  border: 1px solid #e8edf5;
+  border-radius: 14px;
+  padding: 16px;
+  text-align: center;
+  box-shadow: 0 1px 4px rgba(10,50,114,0.04);
+}
+.hn-summary-cell-value { font-size: 26px; font-weight: 900; color: #0f172a; line-height: 1; }
+.hn-summary-cell-label { font-size: 11px; font-weight: 700; color: #64748b; margin-top: 5px; text-transform: uppercase; letter-spacing: 0.04em; }
+
+/* ── Detail panel ── */
+.hn-detail-panel {
+  background: #ffffff;
+  border-radius: 16px;
+  border: 1px solid #e8edf5;
+  box-shadow: 0 2px 12px rgba(10,50,114,0.05);
+  overflow: hidden;
+}
+.hn-detail-panel-header {
+  padding: 14px 20px;
+  border-bottom: 1px solid #f1f5f9;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.hn-detail-panel-body { padding: 20px; }
+.hn-detail-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-bottom: 14px;
+}
+.hn-detail-label { font-size: 11px; font-weight: 700; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 3px; }
+.hn-detail-value { font-size: 13px; font-weight: 600; color: #0f172a; }
+
+/* ── Avatar circle ── */
+.hn-avatar {
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #0284c7, #06b6d4);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 12px; font-weight: 800; color: #fff;
+  flex-shrink: 0;
+}
+
+/* ── Close button ── */
+.hn-close-btn {
+  width: 28px; height: 28px;
+  border-radius: 8px;
+  border: 1.5px solid #e2e8f0;
+  background: #ffffff;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer;
+  color: #64748b;
+  font-size: 16px;
+  line-height: 1;
+  transition: all 0.15s;
+}
+.hn-close-btn:hover { border-color: #ef4444; color: #ef4444; background: #fef2f2; }
+
+/* ── Filter chip buttons ── */
+.hn-chip {
+  height: 32px;
+  padding: 0 14px;
+  border-radius: 999px;
+  border: 1.5px solid #e2e8f0;
+  background: #ffffff;
+  font-size: 12px;
+  font-weight: 700;
+  color: #475569;
+  cursor: pointer;
+  transition: all 0.15s;
+  white-space: nowrap;
+}
+.hn-chip:hover { border-color: #bae6fd; color: #0284c7; background: #f0f9ff; }
+.hn-chip.active { border-color: transparent; background: linear-gradient(135deg, #2b6cb0, #3182ce); color: #ffffff; box-shadow: 0 2px 8px rgba(49,130,206,0.30); }
+
+/* ── Notification item ── */
+.hn-notif-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 14px 20px;
+  border-bottom: 1px solid #f8fafc;
+  transition: background 0.15s;
+}
+.hn-notif-item:hover { background: #f8fafc; }
+.hn-notif-item.unread { background: linear-gradient(135deg, rgba(13,110,253,0.04), rgba(96,165,250,0.02)); }
+.hn-notif-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  margin-top: 5px;
+  flex-shrink: 0;
+}
+.hn-notif-msg { font-size: 13px; line-height: 1.5; }
+.hn-notif-meta { display: flex; align-items: center; gap: 8px; margin-top: 5px; flex-wrap: wrap; }
+
+/* ── Audit log row highlight ── */
+.hn-audit-row-selected { background: #eff6ff !important; }
+
+/* ── Empty state ── */
+.hn-empty {
+  text-align: center;
+  padding: 48px 24px;
+  color: #94a3b8;
+}
+.hn-empty-icon { font-size: 40px; margin-bottom: 12px; }
+.hn-empty-title { font-size: 15px; font-weight: 700; color: #64748b; margin-bottom: 6px; }
+.hn-empty-desc { font-size: 13px; }
+
+/* ══════════════════════════════════════════════════════════
+   HealthNet Unified Design System — Bootstrap Overrides
+   Applies dashboard theme globally to all Bootstrap elements
+   ══════════════════════════════════════════════════════════ */
+
+/* ── Bootstrap Cards → HealthNet card style ── */
+.card {
+  border: 1px solid rgba(0,0,0,0.06) !important;
+  border-radius: 16px !important;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04) !important;
+  background: #ffffff !important;
+  overflow: hidden;
+}
+.card-header {
+  background: #ffffff !important;
+  border-bottom: 1px solid rgba(0,0,0,0.05) !important;
+  padding: 14px 20px !important;
+  font-weight: 800 !important;
+  font-size: 14px !important;
+  color: var(--hn-text) !important;
+}
+.card-body { padding: 20px !important; }
+.card-footer {
+  background: #ffffff !important;
+  border-top: 1px solid rgba(0,0,0,0.05) !important;
+  padding: 12px 20px !important;
+}
+
+/* ── Bootstrap Buttons → HealthNet button style ── */
+.btn {
+  font-family: 'Inter', system-ui, sans-serif !important;
+  font-weight: 700 !important;
+  font-size: 13px !important;
+  border-radius: 10px !important;
+  padding: 8px 18px !important;
+  transition: all 0.18s ease !important;
+  letter-spacing: 0.01em !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+}
+.btn-primary {
+  background: linear-gradient(135deg, #2b6cb0, #3182ce) !important;
+  border: none !important;
+  color: #ffffff !important;
+  box-shadow: 0 3px 10px rgba(49,130,206,0.28) !important;
+}
+.btn-primary:hover:not(:disabled) {
+  background: linear-gradient(135deg, #1e4e8c, #2563eb) !important;
+  box-shadow: 0 5px 16px rgba(49,130,206,0.38) !important;
+  transform: translateY(-1px) !important;
+}
+.btn-outline-primary {
+  border: 1.5px solid #bae6fd !important;
+  background: #f0f9ff !important;
+  color: #0284c7 !important;
+}
+.btn-outline-primary:hover:not(:disabled) {
+  background: #e0f2fe !important;
+  border-color: #0284c7 !important;
+  color: #0369a1 !important;
+  transform: translateY(-1px) !important;
+}
+.btn-outline-secondary {
+  border: 1.5px solid #e2e8f0 !important;
+  background: #ffffff !important;
+  color: #475569 !important;
+}
+.btn-outline-secondary:hover:not(:disabled) {
+  background: #f8fafc !important;
+  border-color: #cbd5e1 !important;
+  color: #334155 !important;
+}
+.btn-danger {
+  background: linear-gradient(135deg, #dc2626, #ef4444) !important;
+  border: none !important;
+  color: #ffffff !important;
+  box-shadow: 0 3px 10px rgba(220,38,38,0.25) !important;
+}
+.btn-success {
+  background: linear-gradient(135deg, #059669, #10b981) !important;
+  border: none !important;
+  color: #ffffff !important;
+}
+.btn-sm {
+  font-size: 12px !important;
+  padding: 5px 12px !important;
+  border-radius: 8px !important;
+}
+.btn:disabled { opacity: 0.55 !important; cursor: not-allowed !important; transform: none !important; }
+
+/* ── Bootstrap Forms → HealthNet input style ── */
+.form-control, .form-select {
+  height: 42px !important;
+  border-radius: 10px !important;
+  border: 1.5px solid #e2e8f0 !important;
+  font-size: 13px !important;
+  font-family: 'Inter', system-ui, sans-serif !important;
+  color: var(--hn-text) !important;
+  background: #f8fafc !important;
+  transition: border-color 0.18s, box-shadow 0.18s, background 0.18s !important;
+  box-shadow: none !important;
+}
+.form-control:focus, .form-select:focus {
+  border-color: #3182ce !important;
+  box-shadow: 0 0 0 3px rgba(49,130,206,0.12) !important;
+  background: #ffffff !important;
+  outline: none !important;
+}
+.form-control.is-invalid, .form-select.is-invalid {
+  border-color: #f87171 !important;
+}
+textarea.form-control {
+  height: auto !important;
+  padding: 10px 14px !important;
+  resize: vertical !important;
+}
+.form-label {
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  color: #374151 !important;
+  margin-bottom: 6px !important;
+}
+.invalid-feedback {
+  font-size: 12px !important;
+  font-weight: 500 !important;
+  color: #ef4444 !important;
+}
+.form-text { font-size: 12px !important; color: var(--hn-muted) !important; }
+
+/* ── Bootstrap Tables → HealthNet table style ── */
+.table {
+  font-family: 'Inter', system-ui, sans-serif !important;
+  font-size: 13px !important;
+  color: var(--hn-text) !important;
+  margin-bottom: 0 !important;
+}
+.table thead th,
+.table > thead > tr > th {
+  background: #f8fafc !important;
+  color: #64748b !important;
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.05em !important;
+  text-transform: uppercase !important;
+  padding: 12px 16px !important;
+  border-bottom: 1px solid #f1f5f9 !important;
+  border-top: none !important;
+  white-space: nowrap !important;
+}
+.table tbody td {
+  padding: 12px 16px !important;
+  border-bottom: 1px solid #f8fafc !important;
+  vertical-align: middle !important;
+  border-top: none !important;
+}
+.table-hover tbody tr:hover {
+  background: #f0f7ff !important;
+  cursor: pointer;
+}
+.table-light th { background: #f8fafc !important; }
+.table-active { background: #eff6ff !important; }
+.table-danger { background: #fff5f5 !important; }
+.table-warning { background: #fffbeb !important; }
+.table-responsive { border-radius: 12px; overflow: hidden; }
+
+/* ── Bootstrap Alerts → HealthNet alert style ── */
+.alert {
+  border-radius: 12px !important;
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  font-family: 'Inter', system-ui, sans-serif !important;
+  padding: 12px 16px !important;
+  border-width: 1px !important;
+  display: flex !important;
+  align-items: flex-start !important;
+  gap: 8px !important;
+}
+.alert-danger  { background: #fef2f2 !important; border-color: #fecaca !important; color: #991b1b !important; }
+.alert-warning { background: #fffbeb !important; border-color: #fde68a !important; color: #92400e !important; }
+.alert-success { background: #f0fdf4 !important; border-color: #bbf7d0 !important; color: #166534 !important; }
+.alert-info    { background: #eff6ff !important; border-color: #bfdbfe !important; color: #1e40af !important; }
+.alert-secondary { background: #f8fafc !important; border-color: #e2e8f0 !important; color: #475569 !important; }
+
+/* ── Bootstrap Badges → HealthNet badge style ── */
+.badge {
+  font-family: 'Inter', system-ui, sans-serif !important;
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  padding: 3px 9px !important;
+  border-radius: 999px !important;
+  letter-spacing: 0.02em !important;
+}
+
+/* ── Bootstrap Spinner → HealthNet spinner ── */
+.spinner-border {
+  width: 18px !important;
+  height: 18px !important;
+  border-width: 2.5px !important;
+}
+.spinner-border.text-primary { color: #0284c7 !important; }
+
+/* ── Bootstrap Modal → HealthNet modal style ── */
+.modal-content {
+  border-radius: 18px !important;
+  border: 1px solid rgba(0,0,0,0.06) !important;
+  box-shadow: 0 24px 64px rgba(10,50,114,0.18) !important;
+  overflow: hidden !important;
+}
+.modal-header {
+  border-bottom: 1px solid rgba(0,0,0,0.05) !important;
+  padding: 18px 24px !important;
+  background: #ffffff !important;
+}
+.modal-title { font-weight: 800 !important; font-size: 16px !important; color: var(--hn-text) !important; }
+.modal-body { padding: 20px 24px !important; }
+.modal-footer {
+  border-top: 1px solid rgba(0,0,0,0.05) !important;
+  padding: 14px 24px !important;
+  background: #ffffff !important;
+}
+
+/* ── Input group ── */
+.input-group .form-control { border-radius: 10px !important; }
+.input-group-text {
+  border: 1.5px solid #e2e8f0 !important;
+  background: #f8fafc !important;
+  font-size: 13px !important;
+  color: var(--hn-muted) !important;
+  border-radius: 10px !important;
+}
+
+/* ── Pagination ── */
+.page-link {
+  border-radius: 8px !important;
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  color: #0284c7 !important;
+  border-color: #e2e8f0 !important;
+  margin: 0 2px !important;
+}
+.page-item.active .page-link {
+  background: linear-gradient(135deg, #2b6cb0, #3182ce) !important;
+  border-color: transparent !important;
+}
+
+/* ── Dropdown ── */
+.dropdown-menu {
+  border-radius: 14px !important;
+  border: 1px solid rgba(0,0,0,0.06) !important;
+  box-shadow: 0 12px 32px rgba(0,0,0,0.10) !important;
+  padding: 6px !important;
+  font-size: 13px !important;
+}
+.dropdown-item {
+  border-radius: 8px !important;
+  padding: 8px 12px !important;
+  font-weight: 600 !important;
+  color: var(--hn-text) !important;
+  transition: background 0.15s !important;
+}
+.dropdown-item:hover { background: #f0f7ff !important; color: #0284c7 !important; }
+
+/* ── List group ── */
+.list-group-item {
+  border-color: rgba(0,0,0,0.05) !important;
+  font-size: 13px !important;
+  padding: 12px 16px !important;
+}
+
+/* ── Utility overrides ── */
+.text-muted { color: var(--hn-muted) !important; }
+.fw-medium { font-weight: 600 !important; }
+.fw-bold   { font-weight: 700 !important; }
+.fw-semibold { font-weight: 600 !important; }
+
+/* ── Additional HealthNet button variants (used by Button.jsx) ── */
+.hn-btn-outline-primary {
+  height: 40px;
+  padding: 0 18px;
+  border-radius: 10px;
+  border: 1.5px solid #bae6fd;
+  background: #f0f9ff;
+  color: #0284c7;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.18s;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.hn-btn-outline-primary:hover:not(:disabled) {
+  background: #e0f2fe;
+  border-color: #0284c7;
+  color: #0369a1;
+  transform: translateY(-1px);
+}
+
+.hn-btn-outline-secondary {
+  height: 40px;
+  padding: 0 18px;
+  border-radius: 10px;
+  border: 1.5px solid #e2e8f0;
+  background: #ffffff;
+  color: #475569;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.18s;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.hn-btn-outline-secondary:hover:not(:disabled) {
+  background: #f8fafc;
+  border-color: #cbd5e1;
+  color: #334155;
+}
+
+.hn-btn-danger {
+  height: 40px;
+  padding: 0 18px;
+  border-radius: 10px;
+  border: none;
+  background: linear-gradient(135deg, #dc2626, #ef4444);
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.18s;
+  box-shadow: 0 3px 10px rgba(220,38,38,0.25);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.hn-btn-danger:hover:not(:disabled) {
+  background: linear-gradient(135deg, #b91c1c, #dc2626);
+  transform: translateY(-1px);
+}
+
+.hn-btn-success {
+  height: 40px;
+  padding: 0 18px;
+  border-radius: 10px;
+  border: none;
+  background: linear-gradient(135deg, #059669, #10b981);
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.18s;
+  box-shadow: 0 3px 10px rgba(5,150,105,0.25);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.hn-btn-success:hover:not(:disabled) {
+  background: linear-gradient(135deg, #047857, #059669);
+  transform: translateY(-1px);
+}
+
+.hn-btn-primary:disabled,
+.hn-btn-outline-primary:disabled,
+.hn-btn-outline-secondary:disabled,
+.hn-btn-danger:disabled,
+.hn-btn-success:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  transform: none;
+}
+
 /* ── Animations ── */
 @keyframes hnFadeUp {
   from { opacity: 0; transform: translateY(18px); }
@@ -504,6 +1102,7 @@ body {
 /* ── Responsive ── */
 @media (max-width: 1024px) {
   .hn-stat-grid { grid-template-columns: repeat(2, 1fr); }
+  .hn-summary-grid { grid-template-columns: repeat(2, 1fr) !important; }
 }
 
 @media (max-width: 768px) {
@@ -511,12 +1110,15 @@ body {
   .hn-auth-card { padding: 28px 20px; }
   .hn-content { padding: 16px; }
   .hn-stat-grid { grid-template-columns: 1fr 1fr; }
+  .hn-page-header-row { flex-direction: column; align-items: flex-start; }
+  .hn-detail-row { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 600px) {
   .hn-sidebar { display: none; }
   .hn-stat-grid { grid-template-columns: 1fr; }
   .hn-auth-card { padding: 24px 16px; border-radius: 16px; }
+  .hn-summary-grid { grid-template-columns: 1fr 1fr !important; }
 }
 
 /* ── Dashboard Shell responsive grids ── */

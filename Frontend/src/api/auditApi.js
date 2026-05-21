@@ -1,5 +1,19 @@
 import axiosClient from './axiosClient'
 
+// ── Audit Logs (system-generated, read-only for Health Admin) ──
+export const getAllAuditLogs = () =>
+  axiosClient.get('/api/v1/audit-logs')
+
+export const getAuditLogById = (id) =>
+  axiosClient.get(`/api/v1/audit-logs/${id}`)
+
+export const getAuditLogsByUserId = (userId) =>
+  axiosClient.get(`/api/v1/audit-logs/user/${userId}`)
+
+// ── Audits (officer-managed records, used by Auditor role) ──
+export const getAllAudits = () =>
+  axiosClient.get('/api/v1/audits')
+
 export const createAudit = (data) =>
   axiosClient.post('/api/v1/audits', data)
 
